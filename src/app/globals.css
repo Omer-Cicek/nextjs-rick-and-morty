@@ -83,11 +83,20 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  
 }
 
 body {
   color: rgb(var(--foreground-rgb));
+  margin: 1em;
 
+}
+
+
+ul {
+  color: violet;
+  font-size: large;
+  list-style: none;
 }
 
 a {

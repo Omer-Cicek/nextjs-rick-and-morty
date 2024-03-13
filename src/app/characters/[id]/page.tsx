@@ -20,17 +20,15 @@ const CharacterDetailsPage = async ({ params }: Props) => {
   return (
     <main>
       <Link href={"/"}>HOME</Link>
-      <h1>Details about a character</h1>
-      <h3>{character.name}</h3>
-      {/* REVIEW */}
-      {/* <p>{character.status}</p>
-      <p>{character.origin}</p> */}
+      <h1>Details about {character.name}</h1>
       <Image
         src={character.image}
         alt={character.name}
         width={300}
         height={300}
       />
+      <p>Status: {character.status}</p>
+      <p>Origin: {character.origin.name}</p>
     </main>
   );
 };
