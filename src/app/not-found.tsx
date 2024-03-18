@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import React from "react";
+import RouterBackBtn from "./components/RouterBackBtn";
 
 export default function NotFound() {
   return (
@@ -9,6 +10,7 @@ export default function NotFound() {
       <Link href="/">HOME</Link>
       <h1>Page not found</h1>
       <p>Could not find requested resource.</p>
+      <RouterBackBtn />
     </div>
   );
 }

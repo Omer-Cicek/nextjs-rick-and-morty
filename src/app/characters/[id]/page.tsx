@@ -1,3 +1,4 @@
+import RouterBackBtn from "@/app/components/RouterBackBtn";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -29,6 +30,7 @@ const CharacterDetailsPage = async ({ params }: Props) => {
       />
       <p>Status: {character.status}</p>
       <p>Origin: {character.origin.name}</p>
+      <RouterBackBtn />
     </main>
   );
 };
