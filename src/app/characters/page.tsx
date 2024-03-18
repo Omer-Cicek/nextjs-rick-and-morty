@@ -1,4 +1,5 @@
 // SERVER COMPONENT, FETCH COMES HERE
+// If it's not declared as a client component it is by default a server component
 
 import Link from "next/link";
 import { Suspense } from "react";
@@ -24,7 +25,8 @@ const CharactersPage = async () => {
     <>
       <Link href={"/"}>HOME</Link>
       <h1>Rick & Morty Characters</h1>
-      <p>Click a name to checkout details about the character</p>
+      <p>Click a name for details about the character</p>
+
       <Suspense fallback={<p>Characters are loading</p>}>
         <ul>
           {characters.map((character) => (
