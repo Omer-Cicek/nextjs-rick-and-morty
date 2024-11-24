@@ -1,6 +1,7 @@
 import RouterBackBtn from "@/app/components/RouterBackBtn";
 import Image from "next/image";
 import Link from "next/link";
+import data from "../../data.json";
 
 type Props = {
   params: { id: string };
@@ -9,15 +10,17 @@ type Props = {
 
 const CharacterDetailsPage = async ({ params }: Props) => {
   const { id } = params;
-  const response = await fetch(
-    `https://rickandmortyapi.com/api/character/${id}`
-  );
-  const data = await response.json();
-  const character = data;
+  // const response = await fetch(
+  //   `https://rickandmortyapi.com/api/character/${id}`
+  // );
+  // const data = await response.json();
+  // const character = data;
+  const character = data.filter(el => +id === el.id)[0];
+  console.log(character, "cjarasdas");
 
-  if (!response.ok) {
-    return <p>Something went wrong 😭</p>;
-  }
+  // if (!response.ok) {
+  //   return <p>Something went wrong 😭</p>;
+  // }
   return (
     <main>
       <Link href={"/"}>HOME</Link>

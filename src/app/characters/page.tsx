@@ -1,10 +1,11 @@
-// SERVER COMPONENT, FETCH COMES HERE
-// If it's not declared as a client component it is by default a server component
+'use client';
 
 import Link from "next/link";
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
+import Cards from "./cards";
+import data from "../data.json";
 
-interface Character {
+export interface Character {
   id: number;
   name: string;
   status: string;
@@ -17,9 +18,16 @@ interface Character {
 }
 
 const CharactersPage = async () => {
-  const response = await fetch("https://rickandmortyapi.com/api/character");
-  const data = await response.json();
-  const characters: Character[] = data.results;
+  // const [selectedCharacter, setSelectedCharacter] = useState('')
+  // const response = await fetch("https://rickandmortyapi.com/api/character");
+  // const data = await response.json();
+
+  // const characters: Character[] = data.results;
+  const characters: Character[] = data;
+
+  const getFilteredData = async () => {
+
+  };
 
   return (
     <>
@@ -27,14 +35,17 @@ const CharactersPage = async () => {
       <h1>Rick & Morty Characters</h1>
       <p>Click a name for details about the character</p>
 
+      <input type="text" />
+      <select onChange={(e) => setSelectedCharacter(e.target.value)}>
+        <option value="table1">table1</option>
+        <option value="table2">table2</option>
+        <option value="table3">table3</option>
+      </select>
+      <button onClick={getFilteredData}>Filter</button>
+      
+
       <Suspense fallback={<p>Characters are loading</p>}>
-        <ul>
-          {characters.map((character) => (
-            <li key={character.id}>
-              <Link href={`/characters/${character.id}`}>{character.name}</Link>
-            </li>
-          ))}
-        </ul>
+        <Cards characters={characters} />
       </Suspense>
     </>
   );
